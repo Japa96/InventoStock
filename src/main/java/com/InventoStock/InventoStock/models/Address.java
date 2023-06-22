@@ -3,19 +3,28 @@ package com.InventoStock.InventoStock.models;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "address")
 public class Address {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column
     @OneToOne(mappedBy = "address")
     private Client client;
+    @Column
     private String street;
+    @Column
     private String neighborhood;
+    @Column
     private String city;
+    @Column
     private String state;
+    @Column
     private String complement;
+    @Column
     private String zipCode;
+    @Column
     private int number;
 
     public Long getId() {

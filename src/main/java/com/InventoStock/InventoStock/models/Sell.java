@@ -4,17 +4,27 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name = "sell")
 public class Sell {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column
     @ManyToMany
     private List<Product>productList;
+    @Column
     @ManyToMany
     private List<Client> clientList;
+    @Column
+    @ManyToMany
+    @JoinColumn(name = "seller_id")
+    private Seller seller;
+    @Column
     private String kindPayment;
+    @Column
     private float totalValue;
+    @Column
     private int quantity;
 
     public Long getId() {
@@ -39,6 +49,14 @@ public class Sell {
 
     public void setClientList(List<Client> clientList) {
         this.clientList = clientList;
+    }
+
+    public Seller getSeller() {
+        return seller;
+    }
+
+    public void setSeller(Seller seller) {
+        this.seller = seller;
     }
 
     public String getKindPayment() {
