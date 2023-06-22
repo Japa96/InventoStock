@@ -1,0 +1,5 @@
+Sistema de gestão de uma loja:
+
+Crie um sistema que permita gerenciar os produtos, clientes e vendas de uma loja.
+Você pode ter classes como "Produto", "Cliente", "Venda" e "Estoque",
+com métodos para adicionar, pesquisar e remover produtos, registrar vendas, etc.
