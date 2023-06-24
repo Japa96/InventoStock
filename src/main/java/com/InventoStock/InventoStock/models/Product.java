@@ -1,6 +1,6 @@
 package com.InventoStock.InventoStock.models;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "product")
@@ -9,21 +9,21 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column
+
     private String sku;
-    @Column
+
     private String productName;
-    @Column
+
     private String description;
-    @Column
+
     private String container;
-    @Column
+
     private String supplierName;
-    @Column
+
     private int supplierCode;
-    @Column
+
     private int quantity;
-    @Column
+
     private int price;
 
     public Long getId() {

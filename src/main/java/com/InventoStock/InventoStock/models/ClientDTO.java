@@ -1,18 +1,6 @@
 package com.InventoStock.InventoStock.models;
 
-import jakarta.persistence.*;
-
-@Entity
-@Table(name = "client")
-public class Client {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "address_id", referencedColumnName = "id")
-    private Address address;
+public class ClientDTO {
 
     private String name;
 
@@ -23,14 +11,6 @@ public class Client {
     private String email;
 
     private String phone;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
@@ -70,13 +50,5 @@ public class Client {
 
     public void setPhone(String phone) {
         this.phone = phone;
-    }
-
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
     }
 }

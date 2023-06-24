@@ -1,6 +1,6 @@
 package com.InventoStock.InventoStock.models;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
@@ -10,16 +10,13 @@ public class Seller {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column
-    @OneToMany(mappedBy = "seller")
-    private List<Sell> sellList;
-    @Column
+
     private String name;
-    @Column
+
     private String lastName;
-    @Column
+
     private String email;
-    @Column
+
     private String phone;
 
     public Long getId() {
@@ -28,14 +25,6 @@ public class Seller {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public List<Sell> getSellList() {
-        return sellList;
-    }
-
-    public void setSellList(List<Sell> sellList) {
-        this.sellList = sellList;
     }
 
     public String getName() {

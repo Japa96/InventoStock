@@ -1,6 +1,6 @@
 package com.InventoStock.InventoStock.models;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
@@ -10,21 +10,11 @@ public class Sell {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column
-    @ManyToMany
-    private List<Product>productList;
-    @Column
-    @ManyToMany
-    private List<Client> clientList;
-    @Column
-    @ManyToMany
-    @JoinColumn(name = "seller_id")
-    private Seller seller;
-    @Column
+
     private String kindPayment;
-    @Column
+
     private float totalValue;
-    @Column
+
     private int quantity;
 
     public Long getId() {
@@ -33,30 +23,6 @@ public class Sell {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public List<Product> getProductList() {
-        return productList;
-    }
-
-    public void setProductList(List<Product> productList) {
-        this.productList = productList;
-    }
-
-    public List<Client> getClientList() {
-        return clientList;
-    }
-
-    public void setClientList(List<Client> clientList) {
-        this.clientList = clientList;
-    }
-
-    public Seller getSeller() {
-        return seller;
-    }
-
-    public void setSeller(Seller seller) {
-        this.seller = seller;
     }
 
     public String getKindPayment() {

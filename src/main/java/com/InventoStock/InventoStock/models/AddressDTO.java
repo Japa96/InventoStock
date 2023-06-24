@@ -1,17 +1,6 @@
 package com.InventoStock.InventoStock.models;
 
-import jakarta.persistence.*;
-
-@Entity
-@Table(name = "address")
-public class Address {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @OneToOne(mappedBy = "address")
-    private Client client;
+public class AddressDTO {
 
     private String street;
 
@@ -26,22 +15,6 @@ public class Address {
     private String zipCode;
 
     private int number;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Client getClient() {
-        return client;
-    }
-
-    public void setClient(Client client) {
-        this.client = client;
-    }
 
     public String getStreet() {
         return street;
