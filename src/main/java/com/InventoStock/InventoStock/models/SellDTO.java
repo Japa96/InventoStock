@@ -1,15 +1,8 @@
 package com.InventoStock.InventoStock.models;
 
-import jakarta.persistence.*;
 import java.util.List;
 
-@Entity
-@Table(name = "sell")
-public class Sell {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class SellDTO {
 
     private String kindPayment;
 
@@ -17,33 +10,11 @@ public class Sell {
 
     private int quantity;
 
-    @ManyToOne
-    @JoinColumn(name = "product_id")
     private Product product;
 
-    @OneToOne
-    @JoinColumn(name = "seller_id")
     private Seller seller;
 
-    @ManyToOne
-    @JoinColumn(name = "client_id")
     private Client client;
-
-    public Client getClient() {
-        return client;
-    }
-
-    public void setClient(Client client) {
-        this.client = client;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getKindPayment() {
         return kindPayment;
@@ -69,6 +40,14 @@ public class Sell {
         this.quantity = quantity;
     }
 
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
     public Seller getSeller() {
         return seller;
     }
@@ -77,11 +56,11 @@ public class Sell {
         this.seller = seller;
     }
 
-    public Product getProduct() {
-        return product;
+    public Client getClient() {
+        return client;
     }
 
-    public void setProduct(Product product) {
-        this.product = product;
+    public void setClient(Client client) {
+        this.client = client;
     }
 }

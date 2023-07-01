@@ -1,14 +1,6 @@
 package com.InventoStock.InventoStock.models;
 
-import jakarta.persistence.*;
-
-@Entity
-@Table(name = "product")
-public class Product {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class ProductDTO {
 
     private String sku;
 
@@ -24,15 +16,7 @@ public class Product {
 
     private int quantity;
 
-    private float price;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
+    private int price;
 
     public String getSku() {
         return sku;
@@ -90,11 +74,11 @@ public class Product {
         this.quantity = quantity;
     }
 
-    public float getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 }

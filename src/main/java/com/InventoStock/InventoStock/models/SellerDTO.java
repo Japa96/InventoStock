@@ -1,14 +1,6 @@
 package com.InventoStock.InventoStock.models;
 
-import jakarta.persistence.*;
-
-@Entity
-@Table(name = "seller")
-public class Seller {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class SellerDTO {
 
     private String name;
 
@@ -17,14 +9,6 @@ public class Seller {
     private String email;
 
     private String phone;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
