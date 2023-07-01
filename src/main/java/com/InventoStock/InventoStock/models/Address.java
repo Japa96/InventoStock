@@ -10,9 +10,6 @@ public class Address {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne(mappedBy = "address")
-    private Client client;
-
     private String street;
 
     private String neighborhood;
@@ -35,13 +32,13 @@ public class Address {
         this.id = id;
     }
 
-    public Client getClient() {
+    /*public Client getClient() {
         return client;
     }
 
     public void setClient(Client client) {
         this.client = client;
-    }
+    }*/
 
     public String getStreet() {
         return street;
