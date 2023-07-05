@@ -8,7 +8,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -44,6 +46,36 @@ public class SellerService {
             response.put("message", "Fail to register Seller");
             response.put("error", e);
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+
+        }
+    }
+
+    public ResponseEntity<?> allSellers(){
+
+        try{
+
+            List<Seller> sellerList = new ArrayList<>();
+            sellerList = sellerRepository.findAll();
+            return ResponseEntity.status(HttpStatus.OK).body(sellerList);
+
+        }catch (Exception e){
+
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Fail to list all Sellers");
+
+        }
+    }
+
+    public ResponseEntity<?> byEmail(String email){
+
+        try{
+
+            List<Seller> sellerList = new ArrayList<>();
+            sellerList = sellerRepository.findByEmail(email);
+            return ResponseEntity.status(HttpStatus.OK).body(sellerList);
+
+        }catch (Exception e){
+
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Fail to find seller by Email");
 
         }
     }

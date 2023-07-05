@@ -8,7 +8,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -49,6 +51,33 @@ public class ProductService {
             response.put("error", e);
 
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+        }
+    }
+
+    public ResponseEntity<?> searchAllProducts(){
+
+        try{
+
+            List<Product> productList = new ArrayList<>();
+            productList = productRepository.findAll();
+            return ResponseEntity.status(HttpStatus.OK).body(productList);
+
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Fail to search all Products");
+        }
+    }
+
+    public ResponseEntity<?> searchBySku(String sku){
+
+        try{
+
+            List<Product> productList = new ArrayList<>();
+            productList = productRepository.findBySku(sku);
+            return ResponseEntity.status(HttpStatus.OK).body(productList);
+
+        }catch (Exception e){
+
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Fail to find product by SKU");
         }
     }
 }

@@ -1,19 +1,34 @@
 package com.InventoStock.InventoStock.models;
 
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+
 public class AddressDTO {
 
+    @NotNull(message = "Street should not be null")
+    @NotEmpty(message = "Street should not be empty")
     private String street;
 
+    @NotNull(message = "Neighborhood should not be null")
+    @NotEmpty(message = "Neighborhood should not be empty")
     private String neighborhood;
 
+    @NotNull(message = "City should not be null")
+    @NotEmpty(message = "City should not be empty")
     private String city;
 
+    @NotNull(message = "State should not be null")
+    @NotEmpty(message = "State should not be empty")
     private String state;
 
     private String complement;
 
+    @NotNull(message = "Zip Code should not be null")
+    @NotEmpty(message = "Zip Code should not be empty")
     private String zipCode;
 
+    @NotNull(message = "Number should not be null")
+    @NotEmpty(message = "Number should not be empty")
     private int number;
 
     public String getStreet() {

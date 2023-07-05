@@ -12,4 +12,6 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
     @Override
     List<Product> findAllById(Iterable<Long> longs);
+
+    List<Product> findBySku(String sku);
 }

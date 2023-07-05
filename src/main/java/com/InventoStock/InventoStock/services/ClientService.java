@@ -10,7 +10,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -59,6 +61,32 @@ public class ClientService {
                 response.put("error", e);
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
             }
+    }
 
+    public ResponseEntity<?> searchAllClients(){
+
+        try{
+
+            List<Client> clientList;
+            clientList =  clientRepository.findAll();
+            return ResponseEntity.status(HttpStatus.OK).body(clientList);
+
+        }catch (Exception e){
+
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Fail to search all clients");
+
+        }
+    }
+
+    public ResponseEntity<?> searchByCpf(String cpf){
+        try{
+
+            List<Client> clientList;
+            clientList = clientRepository.findByCpf(cpf);
+            return ResponseEntity.status(HttpStatus.OK).body(clientList);
+
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Fail to search client by CPF");
+        }
     }
 }

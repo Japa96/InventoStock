@@ -5,10 +5,7 @@ import com.InventoStock.InventoStock.services.ProductService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
@@ -24,5 +21,15 @@ public class ProductController {
     @PostMapping("/registerProduct")
     public ResponseEntity<Map<String, Object>> registerProduct(@Valid @RequestBody ProductDTO productDTO){
         return productService.registerProduct(productDTO);
+    }
+
+    @GetMapping("/allProducts")
+    public ResponseEntity<?> allProducts(){
+        return productService.searchAllProducts();
+    }
+
+    @GetMapping("/bySku/{sku}")
+    public ResponseEntity<?> allBySku(@PathVariable String sku){
+        return productService.searchBySku(sku);
     }
 }

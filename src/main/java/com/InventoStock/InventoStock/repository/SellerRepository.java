@@ -12,4 +12,6 @@ public interface SellerRepository extends JpaRepository<Seller, Long> {
 
     @Override
     List<Seller> findAllById(Iterable<Long> longs);
+
+    List<Seller> findByEmail(String email);
 }
