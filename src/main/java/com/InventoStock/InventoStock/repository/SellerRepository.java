@@ -1,5 +1,6 @@
 package com.InventoStock.InventoStock.repository;
 
+import com.InventoStock.InventoStock.models.Sell;
 import com.InventoStock.InventoStock.models.Seller;
 import org.springframework.data.jpa.repository.JpaRepository;
 

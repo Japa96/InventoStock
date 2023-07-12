@@ -1,7 +1,5 @@
 package com.InventoStock.InventoStock.models;
 
-import java.util.List;
-
 public class SellDTO {
 
     private String kindPayment;
@@ -10,11 +8,11 @@ public class SellDTO {
 
     private int quantity;
 
-    private Product product;
+    private Long productId;
 
-    private Seller seller;
+    private Long sellerId;
 
-    private Client client;
+    private Long clientId;
 
     public String getKindPayment() {
         return kindPayment;
@@ -40,27 +38,27 @@ public class SellDTO {
         this.quantity = quantity;
     }
 
-    public Product getProduct() {
-        return product;
+    public Long getProductId() {
+        return productId;
     }
 
-    public void setProduct(Product product) {
-        this.product = product;
+    public void setProductId(Long productId) {
+        this.productId = productId;
     }
 
-    public Seller getSeller() {
-        return seller;
+    public Long getSellerId() {
+        return sellerId;
     }
 
-    public void setSeller(Seller seller) {
-        this.seller = seller;
+    public void setSellerId(Long sellerId) {
+        this.sellerId = sellerId;
     }
 
-    public Client getClient() {
-        return client;
+    public Long getClientId() {
+        return clientId;
     }
 
-    public void setClient(Client client) {
-        this.client = client;
+    public void setClientId(Long clientId) {
+        this.clientId = clientId;
     }
 }
